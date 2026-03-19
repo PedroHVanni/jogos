@@ -8,3 +8,5 @@ interface Tarefa {
 export function useTarefas() {
     const [tarefas, setTarefas] = useState<Tarefa[]>([]);
 }
+
+//slide 40
