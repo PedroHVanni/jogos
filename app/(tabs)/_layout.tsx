@@ -38,7 +38,7 @@ export default function TabLayout() {
             <Tabs.Screen
                 name='toDoList'
                 options={{
-                    title: 'Lista de Tarefas',
+                    title: 'Lista de Missões',
                     tabBarIcon: ({ color, focused}) => (
                         <Ionicons name={focused ? 'list' : 'list-outline'} color={color} size={24} />
                     ),
