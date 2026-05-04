@@ -45,6 +45,16 @@ export default function TabLayout() {
                 }}
             />
 
+            <Tabs.Screen
+                name='rpg'
+                options={{
+                    title: 'RPG',
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons name={focused ? 'compass' : 'compass-outline'} color={color} size={24} />
+                    ),
+                }}
+            />
+
         </Tabs>
     );
 }
