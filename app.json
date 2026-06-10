@@ -4,7 +4,13 @@
     "slug": "jogos",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "/Users/ra2457015/Desktop/Jogos/jogos/assets/images/LogoAplicativoRPG.png",
+
+    "icon": "./assets/images/logo-rpg.png",
+
+    "image": "./assets/images/logo-rpg.png",
+     "resizeMode": "contain",
+     "backgroundColor": "#25292e",
+
     "scheme": "jogos",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,

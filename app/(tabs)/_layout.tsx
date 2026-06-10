@@ -12,7 +12,7 @@ export default function TabLayout() {
                 headerShadowVisible: false,
                 headerTintColor: '#fff',
                 tabBarStyle: {
-                backgroundColor: '#25292e',
+                    backgroundColor: '#25292e',
                 },
             }}
         >
@@ -21,40 +21,70 @@ export default function TabLayout() {
                 options={{
                     title: 'Home',
                     tabBarIcon: ({ color }) => (
-                        <Ionicons name="game-controller-outline" color={color} size={24} />
+                        <Ionicons
+                            name="game-controller-outline"
+                            color={color}
+                            size={24}
+                        />
                     ),
                 }}
             />
+
             <Tabs.Screen
-                name='about'
+                name="about"
                 options={{
                     title: 'Sobre',
-                    tabBarIcon: ({ color, focused}) => (
-                        <Ionicons name={focused ? 'information-circle' : 'information-circle-outline'} color={color} size={24} />
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons
+                            name={focused ? 'information-circle' : 'information-circle-outline'}
+                            color={color}
+                            size={24}
+                        />
                     ),
                 }}
             />
 
             <Tabs.Screen
-                name='toDoList'
+                name="toDoList"
                 options={{
                     title: 'Lista de Missões',
-                    tabBarIcon: ({ color, focused}) => (
-                        <Ionicons name={focused ? 'list' : 'list-outline'} color={color} size={24} />
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons
+                            name={focused ? 'list' : 'list-outline'}
+                            color={color}
+                            size={24}
+                        />
                     ),
                 }}
             />
 
             <Tabs.Screen
-                name='rpg'
+                name="rpg"
                 options={{
                     title: 'RPG',
                     tabBarIcon: ({ color, focused }) => (
-                        <Ionicons name={focused ? 'compass' : 'compass-outline'} color={color} size={24} />
+                        <Ionicons
+                            name={focused ? 'compass' : 'compass-outline'}
+                            color={color}
+                            size={24}
+                        />
                     ),
                 }}
             />
 
+            <Tabs.Screen
+                name="monstros"
+                options={{
+                    title: 'Bestiário',
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons
+                            name={focused ? 'skull' : 'skull-outline'}
+                            color={color}
+                            size={24}
+                        />
+                    ),
+                }}
+            />
         </Tabs>
     );
 }

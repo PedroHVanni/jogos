@@ -15,7 +15,7 @@ import EmojiSticker from '@/components/EmojiSticker';
 import IconButton from '@/components/IconButton';
 import ImageViewer from '@/components/ImageViewer';
 
-const PlaceholderImage = require('../../assets/images/a0c55db70393bea13a4746c8aab145c8.jpg');
+const PlaceholderImage = require('/Users/ra2457015/Desktop/Jogos/jogos/assets/images/ImagemPrincipalAplicativo.png');
 
 export default function Index() {
   const [status, requestPermission] = MediaLibrary.usePermissions();
