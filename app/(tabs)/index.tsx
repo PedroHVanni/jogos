@@ -18,15 +18,17 @@ import ImageViewer from '@/components/ImageViewer';
 const PlaceholderImage = require('/Users/ra2457015/Desktop/Jogos/jogos/assets/images/ImagemPrincipalAplicativo.png');
 
 export default function Index() {
-  const [status, requestPermission] = MediaLibrary.usePermissions();
+  const [status, requestMediaLibraryPermission] = MediaLibrary.usePermissions();
   const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
   const [showAppOptions, setShowAppOptions] = useState<boolean>(false); 
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [pickedEmoji, setPickedEmoji] = useState<ImageSourcePropType | undefined>(undefined);
+  const [permissionResponse, requestImagePickerPermission] = ImagePicker.useMediaLibraryPermissions();
+  const [cameraPermissionResponse, requestCameraPermission] = ImagePicker.useCameraPermissions();
   const imageRef = useRef<any>(null);
 
   if(status === null) {
-    requestPermission();
+    requestMediaLibraryPermission();
   }
 
   const pickImageAsync = async () => {
@@ -43,6 +45,26 @@ export default function Index() {
       alert('Você não selecionou nenhuma imagem.');
     }
   };
+
+  const takePhotoAsync = async() => {
+    const permission = await ImagePicker.requestCameraPermissionsAsync();
+
+    if (!permission.granted) {
+      alert("Permissão de câmera necessária par tirar a foto.");
+      return;
+    }
+
+    let result = await ImagePicker.launchCameraAsync({
+      allowsEditing: true,
+      quality: 1
+    });
+
+    if (!result.canceled) {
+      setSelectedImage(result.assets[0].uri);
+      setShowAppOptions(true);
+    }
+  };
+
 
   const onReset = () => {
     setShowAppOptions(false);
@@ -105,11 +127,10 @@ export default function Index() {
             <IconButton icon="save-alt" label="Salvar" onPress={onSaveImageAsync} />
           </View>
         </View>
-      ) : selectedImage ? (
-        <View />
       ) : (
       <View style={styles.footerContainer}>
         <Button theme="primary" label="Escolha uma imagem" onPress={pickImageAsync} />
+        <Button label="Tirar uma foto" onPress={takePhotoAsync} />
         <Button label="Usar esta foto" onPress={() => setShowAppOptions(true)} />
       </View>
       )}
